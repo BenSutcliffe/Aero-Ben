@@ -250,3 +250,4 @@ class Nosecone:
 #Initialises the known classes for the rocket (not the fins)
 Bodyone = Body(Body_dia, Body_len)
 Cone = Nosecone(Nosecone_length)
+Fin = Fins(1.1,0.35,0.7,0.2,0.375/2) 
