@@ -22,3 +22,8 @@ mach_array = np.array(df.iloc[:, 14])
 q_array = np.array(df.iloc[:, 15])
 pressure_array = np.array(df.iloc[:, 16])
 density_array = np.array(df.iloc[:, 17])
+
+#velocity_array = np.array([np.linalg.norm([vx_array[a], vy_array[a], vz_array[a]]) for a in range(len(vx_array))])
+#plt.plot(time_array, vz_array)
+#plt.show()
+#accel_array = np.array(np.linalg.norm(ax_array[a], ay_array[a], az_array[a]))
