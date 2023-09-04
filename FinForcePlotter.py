@@ -48,7 +48,3 @@ def fin_F_plotter():
     plt.ylim(0, (max_f+400)/1000)
     plt.legend()
     plt.show()
-    
-fin_F_plotter()
-#plt.plot(time_array, z_array)
-#plt.show()
