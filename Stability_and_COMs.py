@@ -110,8 +110,8 @@ def stability_check(cops,t,p):
       axes1[0].plot(mach_to_times[i],cops[i],marker='o',markeredgecolor="yellow", markerfacecolor="purple")
     axes1[0].legend(loc='lower left')
     axes1[0].set_title('COP vs COM')
-    if not 0<=t<=33:
-      raise ValueError("time must be in range 0 to 33s")
+    if not 0<=t<=33.6:
+      raise ValueError("time must be in range 0 to 33.6s")
     t_finder=round(10*t)
     stability_point=calibers[t_finder]
     print(f'Stability at time {round(t)} seconds is {stability_point} calibers.')
