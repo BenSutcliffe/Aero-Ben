@@ -14,7 +14,7 @@ stability_check(cops,t,p)
 ####
 
 ####FLUTTER    
-sf_switch = False     #Change to turn safety factor line plots on and off. edit fin dimensions and stuff in flutter file.
+sf_switch = True     #Change to turn safety factor line plots on and off. edit fin dimensions and stuff in flutter file.
 sf = 1.2              #safety factor for sim
 sf2 = 0.8             #sf multiplier for crit
 

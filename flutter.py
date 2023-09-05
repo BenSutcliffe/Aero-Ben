@@ -4,7 +4,8 @@ from Classes import *
 from FlightProfileData import *
 
 ####
-Gs, cr, ct, ss, th, ths, thc = 78e9, 1.1, 0.7, 0.35, 12e-3, 1e-3, 10e-3
+Gs, cr, ct, ss, th, ths = 39e9, 1.1, 0.7, 0.35, 8e-3, 1e-3
+thc = th - 2 * ths
 
 startf, endf, stepf = 0, 2800, 1
 ####
@@ -15,14 +16,14 @@ def flutterer(Gs, cr, ct, ss, th, ths, thc, startf, endf, stepf):
     area = 0.5 * (cr + ct) * ss
     AR = ss**2 / area
     lam = ct/cr
-    critMJerry = []
+    critMJ = []
     mach_f_array = np.array(mach_array[startf:endf:stepf])
     t_f_array = np.array(time_array[startf:endf:stepf])
     for j in range(startf, endf, stepf):
         X_flut = 39.3*AR**3 * 1/(th/cr)**3 * 1/(AR+2)
         critMJ_toadd = np.sqrt(Ge*0.000145038/((pressure_array[j]/101325)*((lam+1)/2)*X_flut))
-        critMJerry.append(critMJ_toadd)
-    critMJ_array = np.array(critMJerry)
+        critMJ.append(critMJ_toadd)
+    critMJ_array = np.array(critMJ)
     return mach_f_array, t_f_array, critMJ_array
 
 def flutt_plot(sf, sf2, sf_switch):
