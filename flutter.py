@@ -3,9 +3,11 @@ import matplotlib.pyplot as plt
 from Classes import *
 from FlightProfileData import *
 
+####
 Gs, cr, ct, ss, th, ths, thc = 78e9, 1.1, 0.7, 0.35, 12e-3, 1e-3, 10e-3
 
-startf, endf, stepf = 0, 3800, 1
+startf, endf, stepf = 0, 2800, 1
+####
 
 def flutterer(Gs, cr, ct, ss, th, ths, thc, startf, endf, stepf):
     #ss, cr, ct, th, ths, thc = ss*39.37, cr*39.37, ct*39.37, th*39.37, ths*39.37, thc*39.37
@@ -23,10 +25,12 @@ def flutterer(Gs, cr, ct, ss, th, ths, thc, startf, endf, stepf):
     critMJ_array = np.array(critMJerry)
     return mach_f_array, t_f_array, critMJ_array
 
-def flutt_plot(sf):
+def flutt_plot(sf, sf2, sf_switch):
     mach_fplot, t_plotf, critMJ_plot = flutterer(Gs, cr, ct, ss, th, ths, thc, startf, endf, stepf)
     plt.plot(t_plotf, mach_fplot, label = 'Simulated actual Mach', color = 'red')
-    plt.plot(t_plotf, mach_fplot*sf, label = 'Simulated with sf of {sf}', color = 'red', linestyle = 'dotted')
+    if sf_switch == True:    
+        plt.plot(t_plotf, mach_fplot*sf, label = f'Simulated with sf of {sf}', color = 'red', linestyle = 'dotted')
+        plt.plot(t_plotf, critMJ_plot*sf2, label = f'Simulated with sf of {sf2}', color = 'blue', linestyle = 'dotted')
     plt.plot(t_plotf, critMJ_plot, label = 'Critical Mach (NACA 4197)', color = 'blue')
     plt.xlabel('Time (s)')
     plt.ylabel('Mach number')

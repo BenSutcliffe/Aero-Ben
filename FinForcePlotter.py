@@ -14,7 +14,7 @@ test_fins = Classes.Fin   #edit fin dimensions in Classes
 angle_attack_force_run = 3
 start1 = 0   
 end1 = 4500
-step1 = 1
+step1 = 10
 ####
 
 def fin_F_array(angle_attack_force_run, start1, end1, step1):  #indexes of excel sheet
@@ -44,7 +44,7 @@ def fin_F_plotter():
     plt.axvline(5.9, color = 'green', label = 'Transonic 0.8<M<1.2', linestyle = '--')
     plt.axvline(8.6, color = 'orange', label = 'Supersonic 1.2<M<5', linestyle = '--')
     plt.axvline(32.9, color = 'red', label = 'Hypersonic M>5', linestyle = '--')
-    plt.axvline(21.4, color = 'black', label = 'roughly Max Q', linestyle = '--')
+    #plt.axvline(21.4, color = 'black', label = 'roughly Max Q', linestyle = '--')
     plt.ylim(0, (max_f+400)/1000)
     plt.legend()
     plt.show()
