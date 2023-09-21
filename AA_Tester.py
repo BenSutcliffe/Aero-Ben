@@ -14,10 +14,11 @@ stability_check(cops,t,p)
 ####
 
 ####FLUTTER    
-sf_switch = True     #Change to turn safety factor line plots on and off. edit fin dimensions and stuff in flutter file.
+noncomp_switch = True
+sf_switch = False    #Change to turn safety factor line plots on and off. edit fin dimensions and stuff in flutter file.
 sf = 1.2              #safety factor for sim
 sf2 = 0.8             #sf multiplier for crit
 
-print(f'Skin Shear Modulus: {Gs/1e9}GPa, Root chord of {cr}m, Tip chord of {ct}m, Fin Span of {ss}m, Thickness of {th}m, Skin thickness of {ths}m, Core thickness of {thc}m')
-flutt_plot(sf, sf2, sf_switch)
+print(f'Skin Shear Modulus: {Gs/1e9}GPa, Root chord of {cr}m, Tip chord of {ct}m, Fin Span of {ss}m, Thickness of {th}m, Skin thickness of {ths}m, Core thickness of {thc}m, composite mass of {compm}, freqs are sol {solf} and comp {compf} Hz')
+flutt_plot(sf, sf2, sf_switch, noncomp_switch)
 ####
