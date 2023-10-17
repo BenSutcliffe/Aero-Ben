@@ -6,7 +6,7 @@ from FlightProfileData import *
 ####
 Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 78e9, 1.1, 0.7, 0.35, 7e-3, 1e-3, 59.6, 70.8, 8.2, 5.97
 Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 25e9, 0.65, 0.4, 0.5, 14e-3, 1e-3, 59.6, 70.8, 8.2, 5.97
-Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 78e9, 1.0, 0.7, 0.325, 7e-3, 1e-3, 59.6, 70.8, 8.2, 5.97
+Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 78e9, 1.0, 0.7, 0.325, 7e-3, 1e-3, 59.854, 83.824, 14.5, 5.87    
 # edit above as appropriate. 
 thc = th - 2 * ths
 
@@ -45,4 +45,8 @@ def flutt_plot(sf, sf2, sf_switch, noncomp_switch):
     plt.xlabel('Time (s)')
     plt.ylabel('Mach number')
     plt.legend()
+    plt.show()
+    safety_plot = [critMJ_plot[a]/mach_fplot[a] for a in range(len(critMJ_plot))]
+    plt.plot(t_plotf[800:2800:1], safety_plot[800:2800:1])
+    plt.title('Safety factor using composite calculations for flutter')
     plt.show()
