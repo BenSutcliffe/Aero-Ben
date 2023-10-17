@@ -29,14 +29,15 @@ def fin_F_array(angle_attack_force_run, start1, end1, step1):  #indexes of excel
         elif mach_array[i] >= 1.2:
             Normal_coeff1 = CNalphaN_super(N_fins, test_body.Arearef(), test_fins.area(), beta1, angle_attack_force_run) #FORCES ONLY VALID FOR SUPERSONIC HERE
         Normal_coeff_alpha1 = C_N_force(Normal_coeff1, (angle_attack_force_run * np.pi/180))
-        fin_force1 = F_fin_N(Normal_coeff_alpha1, density_array[i], test_body.Arearef(), vz_array[i])   #0 deg prelim flight used here so only vz to consider.
+        fin_force1 = F_fin_N(Normal_coeff_alpha1, density_array[i], test_fins.area(), vz_array[i])   #0 deg prelim flight used here so only vz to consider. #0.315
         f_list.append(fin_force1)
     f_trunc_array = np.array(f_list)
     return t_trunc_array, f_trunc_array, max(f_list)
 
 def fin_F_plotter():
     t_plot, f_plot, max_f = fin_F_array(angle_attack_force_run, start1, end1, step1)
-    print(f'Max Fin Force is {max_f/1000} kN')
+    print(f'Max Fin Force is {max_f/1000} kN, Fin area of {test_fins.area()}m^2')
+    #print(f'Chord_root, fin_span, Chord_tip, sweep_length, body_radius: {test_fins.Chord_root(), test_fins.fin_span(), test_fins.Chord_tip(), test_fins.sweep_length, test_fins.body_radius()}')
     plt.plot(t_plot, f_plot/1000, label = 'Normal Force on Fin') #conversion to kN
     plt.xlabel('Time(s)')
     plt.ylabel('Total Fin force /kN')
@@ -48,3 +49,6 @@ def fin_F_plotter():
     plt.ylim(0, (max_f+400)/1000)
     plt.legend()
     plt.show()
+    
+#plt.plot(time_array[:2000], az_array[:2000])
+#plt.show()

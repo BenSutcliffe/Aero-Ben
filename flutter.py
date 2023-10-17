@@ -4,11 +4,13 @@ from Classes import *
 from FlightProfileData import *
 
 ####
-Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 78e9, 1.1, 0.7, 0.35, 8e-3, 1e-3, 97.7, 150, 14.76, 6.25
+Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 78e9, 1.1, 0.7, 0.35, 7e-3, 1e-3, 59.6, 70.8, 8.2, 5.97
+Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 25e9, 0.65, 0.4, 0.5, 14e-3, 1e-3, 59.6, 70.8, 8.2, 5.97
+Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 78e9, 1.0, 0.7, 0.325, 7e-3, 1e-3, 59.6, 70.8, 8.2, 5.97
 # edit above as appropriate. 
 thc = th - 2 * ths
 
-startf, endf, stepf = 0, 3200, 1
+startf, endf, stepf = 0, 2800, 1
 ####
 
 def flutterer(Gs, cr, ct, ss, th, ths, thc, startf, endf, stepf, solf, compf, solm, compm):
@@ -32,7 +34,7 @@ def flutterer(Gs, cr, ct, ss, th, ths, thc, startf, endf, stepf, solf, compf, so
 
 def flutt_plot(sf, sf2, sf_switch, noncomp_switch):
     mach_fplot, t_plotf, critMJ_plot, critmach_noncomp = flutterer(Gs, cr, ct, ss, th, ths, thc, startf, endf, stepf, solf, compf, solm, compm)
-    print(f'{mach_fplot[0::2000]} read this to check mach values plot correctly')
+    print(f'{mach_fplot[0::200]} read this to check mach values plot correctly')
     plt.plot(t_plotf, mach_fplot, label = 'Simulated actual Mach', color = 'red')
     if sf_switch == True:    
         plt.plot(t_plotf, mach_fplot*sf, label = f'Simulated with sf of {sf}', color = 'red', linestyle = 'dotted')
