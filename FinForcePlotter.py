@@ -11,10 +11,10 @@ test_body = Classes.Bodyone
 test_fins = Classes.Fin   #edit fin dimensions in Classes
 
 #####
-angle_attack_force_run = 2.5
+angle_attack_force_run = 3
 start1 = 0   
 end1 = 4500
-step1 = 5
+step1 = 2
 ####
 
 def fin_F_array(angle_attack_force_run, start1, end1, step1):  #indexes of excel sheet

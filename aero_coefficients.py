@@ -65,15 +65,15 @@ def CNalphaN_super(num_fin, Area_ref, Area_fin, Beta, angle_attack):
   K_3 = (((2.4*M_value**8)-(10.88*M_value**6)+(24*M_value**4)+(8))/(6*Beta**7))
   
   #Finds the values for the force coefficient using the above coefficients and angle of attack
-  CNalphaN = (num_fin/2) * (Area_fin/Area_ref) * ((K_1) + (K_2 * angle_attack * np.pi/180) + (K_3 * (angle_attack * np.pi/180)**2)) #(num_fin/2) or reciprocal?
+  CNalphaN = (num_fin/2) * (Area_fin/Area_ref) * ((K_1) + (K_2 * angle_attack * np.pi/180) + (K_3 * (angle_attack * np.pi/180)**2))
   '''
   #my (incorrect) take on reading the busemann theory for supersonic coefficients using 'limitations of use of busemanns second order.... 1946 cranfield'
-  angle_attack_r  =  - angle_attack * np.pi/180  #negative for expansive flow
+  angle_attack_r  =  angle_attack * np.pi/180  #negative for expansive flow
   K_1 = 2/Beta
   K_2 = 0.5*((2.4*M_value**4 - 4*M_value**2 + 4))/(Beta**2)
   K_3 = ((0.4*M_value**8 - 1.813*M_value**6 + 4*M_value**4 - 2*M_value**2 + 1.3333)/(Beta**(3.5)))
-  CNalphaN = (num_fin/2) * (Area_fin/Area_ref) * ((K_1*angle_attack_r)+K_2*angle_attack_r**2+K_3*angle_attack_r**3)
-  '''
+  CNalphaN = (num_fin/2) * (Area_fin/Area_ref) * ((K_1)+K_2*angle_attack_r+K_3*angle_attack_r**2) #divided through by aoa here because get's multiplied back in force plotter
+  #ignore all of this chunk now '''
   return CNalphaN
 
 def CNalphaN_trans(num_fin, fin_span, Area_ref, Area_fin, Mach_no, mid_chord_gamma, angle_attack):

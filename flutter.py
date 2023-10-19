@@ -42,6 +42,14 @@ def flutt_plot(sf, sf2, sf_switch, noncomp_switch):
     if noncomp_switch == True:
         plt.plot(t_plotf, critmach_noncomp, label = 'Crit solid Mach', color = 'black')
     plt.plot(t_plotf, critMJ_plot, label = 'Critical Mach (NACA 4197)', color = 'blue')
+    #
+    finsim_points = [2.25, 2.52, 2.83, 3.19, 3.62, 4.13, 4.75, 5.5] #flutter #difference in atmospheric model note.
+    #finsim_points = [1.69, 1.89, 2.12, 2.39, 2.71, 3.1, 3.56, 4.12] # divergence
+    finsim_ts = [0, 7.41, 11.52, 14.94, 17.77, 20.26, 22.45, 24.42 ] #this is to validate solid model analysis as a lower bound #naca 4197 composite correction is employed for other
+    for i in range(0,len(finsim_points)):
+        plt.plot(finsim_ts[i],finsim_points[i],marker='o',markeredgecolor="yellow", markerfacecolor="purple", label = f'{i*6000}ft altitude. Flutter V')
+    print('Note that if fin design is changed, these points from FinSim need to be updated. This was just to ensure FinSim and code were in agreement for analysis on flutter')
+    #
     plt.xlabel('Time (s)')
     plt.ylabel('Mach number')
     plt.legend()
