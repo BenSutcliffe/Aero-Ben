@@ -93,7 +93,7 @@ class Fins:
         gamma_angle : float
           angle between root chord midpoint and tip chord midpoint
     """
-    gamma_angle = np.arctan(0.5*(self.Chord_root - self.Chord_tip)/self.fin_span)
+    gamma_angle = np.arctan(0.5*(self.Chord_root - self.Chord_tip)/self.fin_span) 
     return gamma_angle
 
   def X_f(self):

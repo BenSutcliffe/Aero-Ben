@@ -6,7 +6,9 @@ from FlightProfileData import *
 ####
 Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 78e9, 1.1, 0.7, 0.35, 7e-3, 1e-3, 59.6, 70.8, 8.2, 5.97
 Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 25e9, 0.65, 0.4, 0.5, 14e-3, 1e-3, 59.6, 70.8, 8.2, 5.97
-Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 78e9, 1.0, 0.7, 0.325, 7e-3, 1e-3, 59.854, 83.824, 14.5, 5.87    
+Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 78e9, 1.0, 0.7, 0.325, 7e-3, 1e-3, 59.854, 83, 14.5, 5.87    
+Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 78e9, 1.0, 0.7, 0.325, 7e-3, 1e-3, 97.945, 129.75, 14.5, 5.87 #bending
+Gs, cr, ct, ss, th, ths, solf, compf, solm, compm = 78e9, 1.0, 0.7, 0.325, 7e-3, 1e-3, 153.4, 197, 14.5, 5.87    #torsion #323 is next
 # edit above as appropriate. 
 thc = th - 2 * ths
 
