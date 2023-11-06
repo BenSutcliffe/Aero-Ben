@@ -81,7 +81,7 @@ def calcCentreOfMass(t):
     firstMoment += calcMassPerUnitLength(x,t)*dx*x
     x+=dx
   return firstMoment / calcMass(t)
-
+print(calcCentreOfMass(34))
 ##### MY FUNCTION: PLOTS STABILITY AND COP VS 2 CAL POINT AND PRINTS STABILITY AT TIME T #######
 
 #cops from RASAero for mach 0,0.5,1.0 .... 5.0
